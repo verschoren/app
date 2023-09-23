@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/@zendeskgarden/css-bedrock@7.0.21,npm/@zendeskgarden/css-utilities@4.3.0">
+</head>
+<body>
+  <h2 class="u-semibold u-fs-xl">Hello, World!</h2>
+  <script src="https://static.zdassets.com/zendesk_app_framework_sdk/2.0/zaf_sdk.min.js"></script>
+  <script>
+    var client = ZAFClient.init();
+    client.invoke('resize', { width: '100%', height: '200px' });
+    client.metadata().then(function(metadata) {
+      //get VIP tag
+      var vip_tag = 'vip';
+      vip_tag = metadata.settings.vip_tag != '' ? metadata.settings.vip_tag : vip_tag;
+      
+      //get current user tags
+      client.get('ticket.requester').then(function(data) {
+        var currentUser = data['ticket.requester'];
+        var tags = currentUser.tags;
+        
+        //check if user has tag vip
+        var isVIP = tags.includes('vip');
+        if (isVIP){
+          client.invoke('notify', 'This user is VIP', {sticky: true});
+        }
+      });
+    });
+  </script>
+</body>
+</html>

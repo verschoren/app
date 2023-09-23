@@ -1,0 +1,29 @@
+{
+  "name": "VIP User Notifier",
+  "author": {
+    "name": "Thomas Verschoren",
+    "email": "support@internalnote.com",
+    "url": "https://internalnote.com"
+  },
+  "defaultLocale": "en",
+  "private": true,
+  "location": {
+    "support": {
+      "ticket_sidebar": {
+        "url": "assets/iframe.html",
+        "flexible": true,
+        "autoHide": true
+      }
+    }
+  },
+  "parameters": [
+    {
+      "name": "vip_tag",
+      "type": "text",
+      "required": true,
+      "default": "vip"
+    }
+  ],
+  "version": "1.0.0",
+  "frameworkVersion": "2.0"
+}
