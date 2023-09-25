@@ -13,7 +13,7 @@
         "label": "Message to display",
         "helpText": "Defaults to 'This user is a VIP!', can not be blank"
       },
-      "persistent": {
+      "sticky": {
         "label": "Persistent alert",
         "helpText": "Defaults to false"
       }

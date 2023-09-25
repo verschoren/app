@@ -30,7 +30,7 @@
       "default": "This user is a VIP!"
     },
     {
-      "name": "persistent",
+      "name": "sticky",
       "type": "checkbox"
     }
   ],
