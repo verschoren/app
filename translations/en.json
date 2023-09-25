@@ -3,11 +3,19 @@
     "name": "VIP User Notifier",
     "short_description": "This app shows an alert for a VIP user",
     "long_description": "This app shows an alert for a VIP user",
-    "installation_instructions": "Simply click install and enter the tag you use.",
+    "installation_instructions": "Simply click install. The app comes with three options to set up:\n1.Pick a tag to filter on\n2. Enter the alert message to be displayed.\n3. Choose if the alert is persistent or dissapears after 5 seconds.",
     "parameters": {
       "vip_tag": {
         "label": "Tag used for VIP user",
         "helpText": "Defaults to vip, can not be blank"
+      },
+      "message": {
+        "label": "Message to display",
+        "helpText": "Defaults to 'This user is a VIP!', can not be blank"
+      },
+      "persistent": {
+        "label": "Persistent alert",
+        "helpText": "Defaults to false"
       }
     }
   }

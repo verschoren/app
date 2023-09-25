@@ -22,6 +22,16 @@
       "type": "text",
       "required": true,
       "default": "vip"
+    },
+    {
+      "name": "message",
+      "type": "text",
+      "required": true,
+      "default": "This user is a VIP!"
+    },
+    {
+      "name": "persistent",
+      "type": "checkbox"
     }
   ],
   "version": "1.0.0",

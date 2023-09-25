@@ -2,7 +2,6 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/@zendeskgarden/css-bedrock@7.0.21,npm/@zendeskgarden/css-utilities@4.3.0">
 </head>
 <body>
   <h2 class="u-semibold u-fs-xl">Hello, World!</h2>
@@ -15,6 +14,14 @@
       var vip_tag = 'vip';
       vip_tag = metadata.settings.vip_tag != '' ? metadata.settings.vip_tag : vip_tag;
       
+      //get message
+      var message = 'This user is a VIP';
+      message = metadata.settings.message != '' ? metadata.settings.message : message;
+      
+      //get persistent
+      var persistent = false;
+      persistent = metadata.settings.persistent != '' ? metadata.settings.persistent : persistent;
+      
       //get current user tags
       client.get('ticket.requester').then(function(data) {
         var currentUser = data['ticket.requester'];
@@ -22,8 +29,9 @@
         
         //check if user has tag vip
         var isVIP = tags.includes('vip');
+       
         if (isVIP){
-          client.invoke('notify', 'This user is VIP', {sticky: true});
+          client.invoke('notify', message, {sticky: persistent});
         }
       });
     });
